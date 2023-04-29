@@ -14,22 +14,22 @@
 
         public bool ToBoolean(IFormatProvider provider)
         {
-            throw new InvalidCastException("Conversion is not possible");
+            return this.ValueExact != 0m;
         }
 
         public byte ToByte(IFormatProvider provider)
         {
-            throw new InvalidCastException("Conversion is not possible");
+            throw new InvalidCastException("Conversion to Byte is not possible");
         }
 
         public char ToChar(IFormatProvider provider)
         {
-            throw new InvalidCastException("Conversion is not possible");
+            throw new InvalidCastException("Conversion to Char is not possible");
         }
 
         public DateTime ToDateTime(IFormatProvider provider)
         {
-            throw new InvalidCastException("Conversion is not possible");
+            throw new InvalidCastException("Conversion to DateTime is not possible");
         }
 
         public decimal ToDecimal(IFormatProvider provider)
