@@ -2,21 +2,18 @@
 {
     using System;
 
+    /// <summary>
+    /// Money: Implementation of operators
+    /// If precision is different the result will have the max precision.
+    /// </summary>
+    /// <remarks>
+    /// Overloading of operator + overloads also +=. Same for other operators.
+    /// </remarks>
     public readonly partial struct Money
     {
         private static int MaxPrecision(Money one, Money two)
             => one.Precision > two.Precision ? one.Precision : two.Precision;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="first"></param>
-        /// <param name="second"></param>
-        /// <returns></returns>
-        /// <remarks>
-        /// Wenn Sie den binären +-Operator überladen, wird += implizit überladen!
-        /// </remarks>
-        /// <exception cref="InvalidOperationException"></exception>
         public static Money operator +(Money first, Money second)
         {
             if (first.CurrencyCode != second.CurrencyCode)

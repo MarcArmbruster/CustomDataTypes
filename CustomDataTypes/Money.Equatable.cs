@@ -2,14 +2,11 @@
 {
     using System;
 
+    /// <summary>
+    /// Money: Implementation of IEquatable<Money>.
+    /// </summary>
     public readonly partial struct Money : IEquatable<Money>
     {
-        /// <summary>
-        /// Implementation of IEquatable<Money>.
-        /// </summary>
-        /// <param name="other">The other instance to be compared with current instance.</param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool Equals(Money other)
         {
             return this.CurrencyCode == other.CurrencyCode

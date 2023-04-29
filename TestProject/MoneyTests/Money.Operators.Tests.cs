@@ -74,9 +74,67 @@
         }
 
         [TestMethod]
-        public void Greater()
+        public void GreaterTest()
         {
+            Money one = new(20.20m, "EUR", 2);
+            Money two = new(10.000m, "EUR", 3);
 
+            Assert.IsTrue(one > two);
+        }
+
+        [TestMethod]
+        public void GreaterOrEqualTest()
+        {
+            Money one = new(20.20m, "EUR", 2);
+            Money two = new(20.20m, "EUR", 2);
+            Money three = new(10.000m, "EUR", 3);
+
+            Assert.IsTrue(one >= two);
+            Assert.IsTrue(one >= three);
+        }
+
+        [TestMethod]
+        public void LowerTest()
+        {
+            Money one = new(20.20m, "EUR", 2);
+            Money two = new(10.000m, "EUR", 3);
+
+            Assert.IsTrue(two < one);
+        }
+
+        [TestMethod]
+        public void LowerOrEqualTest()
+        {
+            Money one = new(20.20m, "EUR", 2);
+            Money two = new(20.20m, "EUR", 2);
+            Money three = new(10.000m, "EUR", 3);
+
+            Assert.IsTrue(two <= one);
+            Assert.IsTrue(three <= two);
+        }
+
+        [TestMethod]
+        public void EqualTest()
+        {
+            Money one = new(20.20m, "EUR", 2);
+            Money two = new(20.20m, "EUR", 2);
+            Money three = new(20.20m, "EUR", 3);
+
+            Assert.IsTrue(one == two);
+            Assert.IsFalse(one == three);
+            Assert.IsFalse(two == three);
+        }
+
+        [TestMethod]
+        public void NotEqualTest()
+        {
+            Money one = new(20.20m, "EUR", 2);
+            Money two = new(20.20m, "EUR", 2);
+            Money three = new(20.20m, "EUR", 3);
+
+            Assert.IsFalse(one != two);
+            Assert.IsTrue(one != three);
+            Assert.IsTrue(two != three);
         }
     }
 }

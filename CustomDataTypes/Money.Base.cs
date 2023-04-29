@@ -2,6 +2,9 @@
 {
     using System.Globalization;
 
+    /// <summary>
+    /// Custom Money Data Type.
+    /// </summary>
     public readonly partial struct Money
     {
         private readonly CultureInfo cultureInfo;

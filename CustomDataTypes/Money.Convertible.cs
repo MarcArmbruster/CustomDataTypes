@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Money: Implementation of IConvertible
+    /// </summary>
     public readonly partial struct Money : IConvertible
     {
         public TypeCode GetTypeCode()

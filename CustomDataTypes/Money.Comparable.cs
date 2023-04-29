@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Money: Implementation of IComparable<Money>
+    /// </summary>
     public readonly partial struct Money : IComparable<Money>
     {
         /// <summary>
@@ -17,7 +20,9 @@
         {
             if (this.CurrencyCode != other.CurrencyCode)
             {
-                return string.Compare(this.CurrencyCode, other.CurrencyCode, StringComparison.OrdinalIgnoreCase);
+#pragma warning disable CA1309 // Use ordinal string comparison
+                return string.Compare(this.CurrencyCode, other.CurrencyCode, StringComparison.CurrentCulture);
+#pragma warning restore CA1309 // Use ordinal string comparison
             }
 
             return this.ValueExact.CompareTo(other.ValueExact);
