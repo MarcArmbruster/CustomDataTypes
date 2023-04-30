@@ -7,13 +7,14 @@
     /// </summary>
     public readonly partial struct Money
     {
-        private readonly CultureInfo cultureInfo;
-
         public decimal ValueExact { get; }
-        public decimal Value => Math.Round(this.ValueExact, this.Precision);
         public string CurrencyCode { get; }
         public int Precision { get; }
-
+        public decimal Value => Math.Round(this.ValueExact, this.Precision);
+        public bool IsPositive => this.ValueExact > 0m;
+        public bool IsNegative => this.ValueExact < 0m;
+        public bool IsZero => this.ValueExact == 0m;
+        
         public Money(decimal value, string currencyCode)
         {
             if (string.IsNullOrWhiteSpace(currencyCode))
@@ -21,9 +22,8 @@
                 throw new ArgumentNullException(nameof(currencyCode));
             }
 
-            this.cultureInfo = CultureInfo.CurrentCulture;
             this.ValueExact = value;
-            this.CurrencyCode = currencyCode.ToUpper(this.cultureInfo);
+            this.CurrencyCode = currencyCode.ToUpper(CultureInfo.CurrentCulture);
             this.Precision = 2;
         }
 
@@ -34,15 +34,14 @@
                 throw new ArgumentNullException(nameof(currencyCode));
             }
 
-            this.cultureInfo = CultureInfo.CurrentCulture;
             this.ValueExact = value;
-            this.CurrencyCode = currencyCode.ToUpper(this.cultureInfo);
+            this.CurrencyCode = currencyCode.ToUpper(CultureInfo.CurrentCulture);
             this.Precision = precision;
         }
 
         public override string ToString()
         {
-            return $"{this.ValueExact.ToString(cultureInfo)} {this.CurrencyCode}";
+            return $"{this.ValueExact.ToString(CultureInfo.CurrentCulture)} {this.CurrencyCode}";
         }
 
         public static Money ToOtherCurrency(Money money, string newCurrencyCode, decimal exchangeRateFactor)

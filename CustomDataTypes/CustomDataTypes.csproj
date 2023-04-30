@@ -7,4 +7,8 @@
     <AnalysisLevel>latest-recommended</AnalysisLevel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Energy\" />
+  </ItemGroup>
+
 </Project>

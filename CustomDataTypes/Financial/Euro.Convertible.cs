@@ -3,10 +3,13 @@
     using System;
 
     /// <summary>
-    /// Money: Implementation of IConvertible
+    /// Euro: Implementation of IConvertible
     /// </summary>
-    public readonly partial struct Money : IConvertible
+    public readonly partial struct Euro : IConvertible
     {
+        public static implicit operator Euro(decimal exactValue) => new Euro(exactValue);
+        public static explicit operator decimal(Euro euro) => euro.ValueExact;
+
         public TypeCode GetTypeCode()
         {
             return TypeCode.Decimal;

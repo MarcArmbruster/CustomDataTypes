@@ -6,6 +6,27 @@
     public class MoneyConvertibleTests
     {
         [TestMethod]
+        public void CastMoneyToDecimalTest()
+        {
+            Money one = new(1.10m, "CHF");
+
+            decimal result = (decimal)one;
+            Assert.AreEqual(1.10m, result);
+        }
+
+        [TestMethod]
+        public void CastDecimalStringToMoneyTest()
+        {
+            decimal exactValue = 1.111m;
+
+            Money result = (Money)(exactValue, "EUR");
+
+            Assert.AreEqual(1.11m, result.Value);
+            Assert.AreEqual(1.111m, result.ValueExact);
+            Assert.AreEqual("EUR", result.CurrencyCode);
+        }
+
+        [TestMethod]
         public void ConvertToDecimalTest()
         {
             Money one = new(1.10m, "EUR", 2);
