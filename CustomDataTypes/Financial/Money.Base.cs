@@ -1,10 +1,12 @@
 ﻿namespace System.CustomDataTypes
 {
+    using System.Diagnostics;
     using System.Globalization;
 
     /// <summary>
     /// Custom Money Data Type.
     /// </summary>
+    [DebuggerDisplay("{ValueExact} {CurrencyCode}")]
     public readonly partial struct Money
     {
         public decimal ValueExact { get; }

@@ -1,10 +1,12 @@
 ﻿namespace System.CustomDataTypes
 {
+    using System.Diagnostics;
     using System.Globalization;
 
     /// <summary>
     /// Custom Euro Data Type.
     /// </summary>
+    [DebuggerDisplay("{ValueExact} EUR")]
     public readonly partial struct Euro
     {
         public static string CurrencyCode => "EUR";
