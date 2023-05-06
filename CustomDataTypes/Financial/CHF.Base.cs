@@ -4,12 +4,12 @@
     using System.Globalization;
 
     /// <summary>
-    /// Custom Euro Data Type.
+    /// Custom CHF Data Type.
     /// </summary>
-    [DebuggerDisplay("{ValueExact} EUR")]
-    public readonly partial struct Euro
+    [DebuggerDisplay("{ValueExact} CHF")]
+    public sealed partial class CHF
     {
-        public static string CurrencyCode => "EUR";
+        public static string CurrencyCode => "CHF";
         public static byte Precision => 2;
         public decimal ValueExact { get; }
         public decimal Value => Math.Round(this.ValueExact, 2);
@@ -17,7 +17,7 @@
         public bool IsNegative => this.ValueExact < 0m;
         public bool IsZero => this.ValueExact == 0m;
         
-        public Euro(decimal value)
+        public CHF(decimal value)
         {
             this.ValueExact = value;
         }
