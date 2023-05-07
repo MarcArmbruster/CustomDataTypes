@@ -11,7 +11,7 @@
             Stopwatch sw = Stopwatch.StartNew();
             foreach (var value in Enumerable.Range(0, 1_000_000))
             {
-                BuildAndDestroy(value);
+                Create(value);
             }
             sw.Stop();
             
@@ -20,10 +20,9 @@
             Assert.IsTrue(sw.ElapsedMilliseconds > 0);
         }
 
-        private static void BuildAndDestroy(decimal value)
+        private static void Create(decimal value)
         {
             Euro euro = value;
-            euro += 1m;
         }
     }
 }
