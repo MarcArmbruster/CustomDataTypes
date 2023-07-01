@@ -19,4 +19,8 @@
     <ProjectReference Include="..\CustomDataTypes\CustomDataTypes.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Financial\ChfTests\" />
+  </ItemGroup>
+
 </Project>

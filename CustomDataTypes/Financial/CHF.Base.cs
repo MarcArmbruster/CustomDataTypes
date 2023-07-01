@@ -26,5 +26,29 @@
         {
             return $"{this.ValueExact.ToString(CultureInfo.CurrentCulture)} {CurrencyCode}";
         }
+
+        public CHF Netto(decimal vatRateFactor)
+        {
+            var tara = this.ValueExact * vatRateFactor;
+            return new CHF(this.ValueExact - tara);
+        }
+
+        public CHF Netto(Vat vat)
+        {
+            var tara = this.ValueExact * vat.Factor;
+            return new CHF(this.ValueExact - tara);
+        }
+
+        public CHF Tara(decimal vatRateFactor)
+        {
+            var tara = this.ValueExact * vatRateFactor;
+            return new CHF(tara);
+        }
+
+        public CHF Tara(Vat vat)
+        {
+            var tara = this.ValueExact * vat.Factor;
+            return new CHF(tara);
+        }
     }
 }
